@@ -1,4 +1,4 @@
 class Food < ApplicationRecord
   belongs_to :user
-  has_many :recipe_foods, dependent: :delete_all
+  has_many :recipefoods, dependent: :delete_all
 end
