@@ -30,7 +30,7 @@
     </div>
     
     <% if @recipe.user == current_user %>
-      <%= link_to 'Add ingredients', new_recipe_recipe_food_path(@recipe), class: 'btn btn-outline-info' %> 
+      <%= link_to 'Add ingredients', new_recipe_recipefood_path(@recipe), class: 'btn btn-outline-info' %> 
     <%end%> 
   </div>
 </div>
@@ -44,7 +44,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @recipe_foods.each do |recipe_food| %>
+  <% @recipe.recipefoods.each do |recipe_food| %>
     <tr>
       <td><%=recipe_food.food.name%></td>
       <td><%=recipe_food.food.measurement_unit%></td>

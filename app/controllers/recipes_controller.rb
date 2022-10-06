@@ -8,8 +8,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @recipe_foods = @recipe.recipe_foods
-    @inventories = Inventory.all
+    @recipe_foods = @recipe.recipefoods
   end
 
   def public
