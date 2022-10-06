@@ -3,8 +3,8 @@
 <ul class='list-group mt-2'>
 <% @sum = 0 %>
  <% @recipes.each do |recipe|%>
-  <% unless recipe.recipefoods.empty? %>
-    <% recipe.recipefoods.each do |recipe_food| %>
+  <% unless recipe.foods.empty? %>
+    <% recipe.foods.each do |recipe_food| %>
         <% @sum += recipefood.food.price%> 
     <%end%>
   <%end%>
