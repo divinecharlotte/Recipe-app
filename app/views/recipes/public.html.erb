@@ -3,11 +3,7 @@
 <ul class='list-group mt-2'>
 <% @sum = 0 %>
  <% @recipes.each do |recipe|%>
-  <% unless recipe.foods.empty? %>
-    <% recipe.foods.each do |recipe_food| %>
-        <% @sum += recipefood.food.price%> 
-    <%end%>
-  <%end%>
+  
   <div class= 'list-group-item container'>
   <li class='row row-cols-2'> 
   <div class='col'>
@@ -16,8 +12,8 @@
     
   </div>
     <p class='col'>
-    food items:  <%=recipe.recipefoods.length%><br>
-    total price:  <%=@sum%>
+    food items: <br>
+    total price:  
     </p>
   </li>
   </div>
