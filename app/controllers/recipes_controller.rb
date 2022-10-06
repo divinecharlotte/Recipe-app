@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: %i[show edit update destroy]
+
   def index
     return if current_user.nil?
 
@@ -9,7 +11,6 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @recipe_foods = @recipe.recipe_foods
-    @inventories = Inventory.all
   end
 
   def public
@@ -39,18 +40,20 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    recipe = Recipe.find(params[:id])
-    user = current_user
-    recipe.destroy
-    if user.save
-      flash[:notice] = 'Recipe was successfully deleted.'
-      redirect_to recipes_path
-    else
-      render :new, alert: 'Error can not delete deleting the recipe'
+    # recipe = Recipe.find(params[:id])
+    # user = current_user
+    @recipe.destroy
+    respond_to do |format|
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
   private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.permit(:name, :description, :cooking_time, :preparation_time, :public)
