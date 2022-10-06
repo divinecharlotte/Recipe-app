@@ -43,7 +43,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 gem 'devise'
+gem 'ffi'
 gem 'rubocop', '>= 1.0', '< 2.0'
+group :development, :test do
+  gem 'rspec-rails'
+end
 # Use Sass to process CSS
 # gem "sassc-rails"
 
