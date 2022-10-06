@@ -1,11 +1,13 @@
 <% if user_signed_in? %>
   <p class='alert alert-info'>Welcome <%= current_user.email%></p>
 <%end%>
-<hh3>This is the list of our users:</hh3>
+<h3>This is the list of our users:</h3>
 <ul class='card'>
-<% @users.each do |user|%>
-  <li  >Email: <%= user.email %></li>ind
+<% @users.each do |user| %>
+  <li>Name: <%= user.name || "Nil" %> => Email: <%= user.email %></li>
 <%end%>
 </ul>
 
-<%= link_to 'sign in', new_user_session_path %>
+<% unless user_signed_in? %>
+  <%= link_to 'sign in', new_user_session_path %>
+<% end %>
