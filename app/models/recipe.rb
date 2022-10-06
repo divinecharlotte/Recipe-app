@@ -3,6 +3,6 @@ class Recipe < ApplicationRecord
   validates :description, presence: true, length: { minimum: 5, maximum: 5000 }
 
   belongs_to :user
-  has_many :recipefoods, dependent: :destroy
-  has_many :foods, through: :recipefoods
+  has_many :recipe_foods, dependent: :destroy
+  has_many :foods, through: :recipe_foods
 end

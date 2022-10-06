@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Recipe_foods', type: :request do
+RSpec.describe 'Recipefoods', type: :request do
   describe 'GET foods#index' do
     before(:each) do
       user = User.create name: 'Tom', email: 'tom@example.com', password: '123456'
