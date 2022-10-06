@@ -18,7 +18,7 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
   test 'should create food' do
     assert_difference('Food.count') do
       post foods_url,
-           params: { food: { measure_unit: @food.measure_unit, name: @food.name, price: @food.price,
+           params: { food: { measurement_unit: @food.measurement_unit, name: @food.name, price: @food.price,
                              quantity: @food.quantity } }
     end
 
@@ -37,7 +37,7 @@ class FoodsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update food' do
     patch food_url(@food),
-          params: { food: { measure_unit: @food.measure_unit, name: @food.name, price: @food.price,
+          params: { food: { measurement_unit: @food.measurement_unit, name: @food.name, price: @food.price,
                             quantity: @food.quantity } }
     assert_redirected_to food_url(@food)
   end
