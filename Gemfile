@@ -12,6 +12,8 @@ gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
+gem 'rails-controller-testing'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
 
@@ -43,7 +45,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 
 gem 'devise'
+gem 'ffi'
 gem 'rubocop', '>= 1.0', '< 2.0'
+group :development, :test do
+  gem 'rspec-rails'
+end
 # Use Sass to process CSS
 # gem "sassc-rails"
 
