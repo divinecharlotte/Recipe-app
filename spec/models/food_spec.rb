@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   subject do
-    @user = User.create!(name: 'Epaltechs', email: 'epal@mail.com', password: 'password')
-    Food.create!(name: 'Corn', measure_unit: 'grams', price: 2, user_id: @user.id)
+    @user = User.create(name: 'Epaltechs', email: 'epal@mail.com', password: 'password')
+    Food.create(name: 'Corn', measurement_unit: 'grams', price: 2, user: @user)
   end
 
   before(:each) { subject.save }
@@ -13,11 +13,11 @@ RSpec.describe Food, type: :model do
   end
 
   it 'should have Measurement unit grams' do
-    expect(subject.measure_unit).to eql('grams')
+    expect(subject.measurement_unit).to eql('grams')
   end
 
   it 'Should always have Measurement unit present' do
-    subject.measure_unit = nil
+    subject.measurement_unit = nil
     expect(subject).to_not be_valid
   end
 
