@@ -29,7 +29,5 @@ RSpec.describe 'Testing recipes view', type: :feature do
         expect(find_all('button').length).to eq 8
       end
     end
-
-
   end
 end

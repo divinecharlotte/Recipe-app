@@ -20,5 +20,4 @@ RSpec.describe 'Recipes', type: :request do
       expect(response.body).to include('All recipe')
     end
   end
-
 end
