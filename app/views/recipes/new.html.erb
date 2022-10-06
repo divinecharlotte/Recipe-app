@@ -1,9 +1,18 @@
-<h1>New recipe</h1>
-
-<%= render "form", recipe: @recipe %>
-
-<br>
-
-<div>
-  <%= link_to "Back to recipes", recipes_path %>
+<div class="card p-2 bg-light">
+  <h1>New Recipe</h1>
+  <%= form_with model: @recipe, class: 'w-100 d-flex flex-column'  do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name, class:'form-control', placeholder: 'name',:required => true ,autofocus: true %>
+    <%= form.label :preparation_time %>
+    <%= form.text_field :preparation_time, class:'form-control-sm w-25', placeholder: 'preparation time' %>
+    <%= form.label :cooking_time %>
+    <%= form.text_field :cooking_time, class:'form-control-sm w-25', placeholder: 'cooking time' %>
+    <%= form.label :description %>
+    <%= form.text_field :description, class:'form-control', placeholder: 'description...' %>
+    <%= form.label :public %>
+  <%= form.check_box :public, class:'form-check-input mb-2 ms-2', placeholder: 'Is this recipe public'%>
+  
+  <%= form.submit "Create Recipe", class:"btn btn-success" %>
+<% end %>
 </div>
+<%= link_to "<-- Go Back ", :back, class:'btn btn-secondary w-25 mt-2' %>

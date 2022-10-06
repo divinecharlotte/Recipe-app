@@ -1,0 +1,18 @@
+<ul class='list-group'>
+ <% @recipes.each do |recipe|%>
+  <div class= 'list-group-item container'>
+  <li class='row row-cols-2'> 
+  <div class='col'>
+    <h4 class='d-block'>name:  <%=recipe.name%></h4>
+    <div class= 'btn-group'>
+    <% if recipe.user == current_user %>
+    <%= button_to 'Remove', recipe_path(recipe), method: :delete, class: 'btn btn-outline-danger' %> 
+    <%end%> 
+    <%= link_to 'show more', recipe,  class: 'btn btn-outline-primary' %> 
+    </div>
+  </div>
+  <p class='col'> description:  <%=recipe.description%></p>
+  </li>
+  </div>
+ <%end%>
+</ul>

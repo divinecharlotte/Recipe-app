@@ -1,0 +1,21 @@
+<h1> This is the the list of all public recipes</h1>
+
+<ul class='list-group mt-2'>
+<% @sum = 0 %>
+ <% @recipes.each do |recipe|%>
+  
+  <div class= 'list-group-item container'>
+  <li class='row row-cols-2'> 
+  <div class='col'>
+    <h4 class='d-block'>name:  <%=recipe.name%></h4>
+    <h4 class='d-block'>by  <%=recipe.user.email%></h4>
+    
+  </div>
+    <p class='col'>
+    food items:  <%=recipe.recipefoods.length%><br>
+    total price:  <%=@sum%>
+    </p>
+  </li>
+  </div>
+ <%end%>
+</ul>

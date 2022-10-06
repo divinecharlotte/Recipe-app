@@ -1,14 +1,13 @@
-<p style="color: green"><%= notice %></p>
+<% if user_signed_in? %>
+  <p class='alert alert-info'>Welcome <%= current_user.email%></p>
+<%end%>
+<h3>This is the list of our users:</h3>
+<ul class='card'>
+<% @users.each do |user| %>
+  <li>Name: <%= user.name || "Nil" %> => Email: <%= user.email %></li>
+<%end%>
+</ul>
 
-<h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New user", new_user_path %>
+<% unless user_signed_in? %>
+  <%= link_to 'sign in', new_user_session_path %>
+<% end %>
