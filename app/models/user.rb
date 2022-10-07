@@ -14,6 +14,4 @@ class User < ApplicationRecord
     end
     sum
   end
-
-
 end
