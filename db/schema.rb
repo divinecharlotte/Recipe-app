@@ -17,8 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_032705) do
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.string "measurement_unit"
-    t.decimal "price"
-    t.decimal "quantity"
+    t.integer "price"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
@@ -33,16 +33,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_032705) do
     t.datetime "updated_at", null: false
     t.index ["food_id"], name: "index_recipe_foods_on_food_id"
     t.index ["recipe_id"], name: "index_recipe_foods_on_recipe_id"
-  end
-
-  create_table "recipefoods", force: :cascade do |t|
-    t.bigint "foods_id"
-    t.bigint "recipes_id"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["foods_id"], name: "index_recipefoods_on_foods_id"
-    t.index ["recipes_id"], name: "index_recipefoods_on_recipes_id"
   end
 
   create_table "recipes", force: :cascade do |t|

@@ -17,13 +17,13 @@
       </thead>
       <tbody>
         <% @recipe.recipe_foods.each do |r| %>
-          <% if @food.include?(r.food) %>
+          
             <tr>
               <th scope="row"><%= r.food.name %></th>
               <td><%= r.quantity %> x <%= r.food.measurement_unit %></td>
               <td>$<%= r.food.price * r.quantity %></td>
             </tr>
-          <% end %>
+         
         <% end %>
       </tbody>
     </table>
