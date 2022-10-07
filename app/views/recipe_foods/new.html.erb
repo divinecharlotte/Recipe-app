@@ -1,0 +1,14 @@
+<h1>Add food from this list</h1>
+<div class='card p-2 w-25'>
+  <%= form_with model: [@recipe, @recipe.recipe_foods.create], class: ' d-flex flex-column '  do |form| %>
+    <%= form.select :food_id, current_user.foods.collect {|food| [food.name, food.id]},{ include_blank: true}, class:'p-2 mb-2' %>
+    <%= form.number_field :quantity ,  class:"form-control" , required: true, placeholder: '1',  min: 1%>
+
+    <%= form.submit 'add food', class:'btn btn-secondary mt-2'%>
+  <% end %>
+</div>
+
+
+  
+
+<%= link_to "<-- Go Back ", :back, class:'btn btn-secondary w-25 mt-2' %>

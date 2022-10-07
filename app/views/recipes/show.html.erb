@@ -1,0 +1,64 @@
+<div class=' border-bottom p-3'>
+  <h1 class='text-center'> <%= @recipe.name %></h1>
+  <div class= 'd-flex justify-content-between'>
+  <div>preparation time: <%= @recipe.preparation_time%></div>
+  <div class="recipe-stat">
+      <% if @recipe.public %>
+        <span class="btn btn-warning">Public</span>
+      <% else %>
+        <span class="btn btn-primary">Private</span>
+      <% end %>
+    </div>
+  </div>
+
+  <div>coooking time: <%= @recipe.cooking_time %></div>
+  <div>
+    <!-- Button trigger modal -->
+ <%= link_to "Generate Shopping list", recipe_shopping_lists_path(@recipe.id), :class => "btn btn-success btn-gen" %>
+
+    <!-- Modal -->
+    <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content "  style="height: 400px;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+      <%= link_to 'Add ingredients', new_recipe_recipe_food_path(@recipe), class: 'btn btn-outline-info' %> 
+
+  </div>
+</div>
+<table class="table table-hover border  mt-2">
+  <thead class=' text-secondary'>
+    <tr class='bg-light'>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Value</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @recipe.recipe_foods.each do |recipe_food| %>
+    <tr>
+      <td><%=recipe_food.food.name%></td>
+      <td><%=recipe_food.food.quantity%></td>
+      <td><%=recipe_food.food.price%></td>
+      <td>
+      <div class= 'btn-group'>
+      <% if @recipe.user == current_user %>
+      <%= button_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class: 'btn btn-outline-dark' %> 
+      <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class: 'btn btn-outline-danger' %> 
+      <%end%> 
+      
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+
+<%= link_to "<-- Go Back ", :back, class:'btn btn-secondary w-25 mt-2' %>
