@@ -8,10 +8,8 @@
   <div>coooking time: <%= @recipe.cooking_time %></div>
   <div>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">
-     Generate Shopping list
-    </button>
-    
+ <%= link_to "Generate Shopping list", recipe_shopping_lists_path(@recipe.id), :class => "btn btn-success btn-gen" %>
+
     <!-- Modal -->
     <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -21,17 +19,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            
-          </div>
         </div>
       </div>
     </div>
     
-    <% if @recipe.user == current_user %>
-      <%= link_to 'Add ingredients', new_recipe_recipefood_path(@recipe), class: 'btn btn-outline-info' %> 
-    <%end%> 
+      <%= link_to 'Add ingredients', new_recipe_recipe_food_path(@recipe), class: 'btn btn-outline-info' %> 
+
   </div>
 </div>
 <table class="table table-hover border  mt-2">
@@ -44,10 +37,10 @@
     </tr>
   </thead>
   <tbody>
-  <% @recipe.recipefoods.each do |recipe_food| %>
+  <% @recipe.recipe_foods.each do |recipe_food| %>
     <tr>
       <td><%=recipe_food.food.name%></td>
-      <td><%=recipe_food.food.measurement_unit%></td>
+      <td><%=recipe_food.food.quantity%></td>
       <td><%=recipe_food.food.price%></td>
       <td>
       <div class= 'btn-group'>

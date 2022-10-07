@@ -1,6 +1,6 @@
 <div class="card p-2 bg-light">
   <h1>New Recipe</h1>
-  <%= form_with model: @recipe, class: 'w-100 d-flex flex-column'  do |form| %>
+  <%= form_with model: @recipe, data: { turbo: false },  class: 'w-100 d-flex flex-column'  do |form| %>
     <%= form.label :name %>
     <%= form.text_field :name, class:'form-control', placeholder: 'name',:required => true ,autofocus: true %>
     <%= form.label :preparation_time %>
