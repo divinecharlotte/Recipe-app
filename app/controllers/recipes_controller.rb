@@ -19,7 +19,6 @@ class RecipesController < ApplicationController
 
   def new
     @user = current_user
-    recipe = Recipe.new
   end
 
   def create
