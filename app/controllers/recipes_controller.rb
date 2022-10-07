@@ -19,11 +19,7 @@ class RecipesController < ApplicationController
 
   def new
     @user = current_user
-
     recipe = Recipe.new
-    respond_to do |format|
-      format.html { render :new, locals: { recipe: } }
-    end
   end
 
   def create

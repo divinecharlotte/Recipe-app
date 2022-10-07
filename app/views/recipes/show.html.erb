@@ -2,7 +2,13 @@
   <h1 class='text-center'> <%= @recipe.name %></h1>
   <div class= 'd-flex justify-content-between'>
   <div>preparation time: <%= @recipe.preparation_time%></div>
-  <span><%= @recipe.public %></span>
+  <div class="recipe-stat">
+      <% if @recipe.public %>
+        <span class="btn btn-warning">Public</span>
+      <% else %>
+        <span class="btn btn-primary">Private</span>
+      <% end %>
+    </div>
   </div>
 
   <div>coooking time: <%= @recipe.cooking_time %></div>
