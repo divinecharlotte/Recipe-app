@@ -8,6 +8,9 @@
 
 ## Getting Started
 
+## LIVE DEMO 
+[RECIPE-APP](https://sheltered-sierra-58004.herokuapp.com/)
+
 ### Prerequisites
 You need Ruby v3+, Rails v7+ and Postgresql installed on your machine.
 
